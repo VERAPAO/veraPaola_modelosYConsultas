@@ -17,3 +17,38 @@ img{
 figure{
   width: 20%;
 }
+
+.title-create-movie, .title-edit-movie, .title-delete-movie {
+  margin-left: 80px;
+  margin-top: 10px;
+  color: #ed677d;
+}
+
+section.form-create, section.form-edit, section.form-delete {
+  margin-left: 80px;
+}
+
+.label-create-movie, .label-edit-movie {
+  color: gray;
+  font-weight: 600;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.input-create-movie, .input-edit-movie {
+  margin: 10px 0 15px 0;
+  height: 1.8rem;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding-left: 5px;
+}
+
+.button-create-movie, .button-edit-movie, .button-delete-movie{
+  height: 2rem;
+  width: 90px;
+  color:#ed677d;
+  font-weight: 600;
+  background-color: rgb(233, 229, 229);
+  border: none;
+  border-radius: 5px;
+}

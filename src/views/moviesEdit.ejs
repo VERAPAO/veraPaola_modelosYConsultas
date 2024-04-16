@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="titulo">Editar Película</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+    </figure>
+    <%- include("./partials/header") %>
+
+    <h1 class="title-edit-movie">Película a Editar:  <%= movie.title %></h1>
+    <br>
+    <section class="form-edit">
+        <form action="/movies/update/<%= movie.id %>?_method=PUT" method="POST">
+            <label class="label-edit-movie" for="title">Título de la película</label>
+            <p><input class="input-edit-movie" type="text" name="title" id="title" value="<%= movie.title %>" required></p>
+            <label class="label-edit-movie" for="rating">Rating </label>
+            <p><input class="input-edit-movie" type="number" name="rating" id="rating" value="<%= movie.rating %>" required></p>
+            <label class="label-edit-movie" for="awards">Premios de la película </label>
+            <p><input class="input-edit-movie" type="number" name="awards" id="awards" value="<%= movie.awards %>" required></p>
+            <label class="label-edit-movie" for="release_date">Fecha de lanzamiento </label>
+            <p><input class="input-edit-movie" type="date" name="release_date" id="release_date" value= <%= movie.release_date.getFullYear() %>-<%= movie.release_date.getMonth() || "10" || "11" || "12" ? "0" + movie.release_date.getMonth() :   movie.release_date.getMonth()  %>-<%= movie.release_date.getDate() <= "9" ? "0" + movie.release_date.getDate() :  movie.release_date.getDate() %> required></p>
+            <label class="label-edit-movie" for="length">Duración </label>
+            <p><input class="input-edit-movie" type="number" name="length" id="" value="<%= movie.length %>" required></p>
+            <br>
+            <p> <button class="button-edit-movie" type="submit">ACTUALIZAR</button>
+            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+        </form>
+    </section>
+</body>
+</html>

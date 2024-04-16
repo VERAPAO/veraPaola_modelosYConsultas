@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie add</title>
+    <link rel='stylesheet' href='/css/style.css' />
+</head>
+
+<body>
+    <figure>
+        <img src="/img/logo-DH.png" alt="Logo Digital House">
+      </figure>
+      <%- include("./partials/header") %> 
+      <br>
+    <h1 class="title-create-movie">Agregar Película</h1>
+    <br>
+    <section class="form-create">
+        <form action="/movies/create" method="POST">
+            <label class="label-create-movie" for="title">Título Película </label>
+            <p><input class="input-create-movie" type="text" name="title" id="" required></p>
+            <label class="label-create-movie" for="rating">Rating </label>
+            <p><input class="input-create-movie" type="number" name="rating" id="" required> </p>
+            <label class="label-create-movie" for="awards">Premios de la película </label>
+            <p><input class="input-create-movie" type="number" name="awards" id="" required></p>
+            <label class="label-create-movie" for="release_date">Fecha de lanzamiento</label>
+            <p><input class="input-create-movie" type="date" name="release_date" id="" required></p>
+            <label class="label-create-movie" for="length">Duración</label>
+            <p><input class="input-create-movie" type="number" name="length" id="" required></p>
+
+            <br>
+            <p> <button class="button-create-movie" type="submit">AGREGAR</button>
+            
+            <a  class="botonVolver" href="/movies">Listado de Películas</a></p>
+        </form>
+    </section>
+    
+</body>
+
+</html>

@@ -1,5 +1,12 @@
+
+const { where } = require("sequelize");
 const db = require("../database/models")
 const {Op} = db.Sequelize
+
+const sequelize = db.sequelize;
+
+//Otra forma de llamar a los modelos
+const Movies = db.Movie;
 
 module.exports = {
   list: (req,res) => {
@@ -74,6 +81,80 @@ module.exports = {
     .catch((err) => {
       res.send(err.message)
     }) 
+  },
+
+  add: (req, res) => {
+    res.render('moviesCreate')
+  },
+
+  create: (req, res)=> {
+    db.Movie.create({
+      title: req.body.title,
+      rating: req.body.rating,
+      awards: req.body.awards, 
+      release_date: req.body.release_date,
+      length: req.body.length
+    })
+    .then(() =>{ 
+      res.redirect('/movies')
+    })
+  }, 
+  edit: (req, res) => {
+    const { id } = req.params
+    db.Movie.findByPk(id)
+    .then((movie) => {
+      res.render("moviesEdit", {
+        movie
+      })
+    })
+    .catch((err) => {
+      res.send(err.message)
+    }) 
+  },
+  update: (req, res) => {
+    db.Movie.update({
+      title: req.body.title,
+      rating: req.body.rating,
+      awards: req.body.awards, 
+      release_date: req.body.release_date,
+      length: req.body.length
+    } , {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(() =>{ 
+      res.redirect('/movies')
+    })
+  },
+
+  delete: (req, res) => {
+    const { id } = req.params
+    db.Movie.findByPk(id)
+    .then((movie) => {
+      res.render("moviesDelete", {
+        movie
+      })
+    })
+    .catch((err) => {
+      res.send(err.message)
+    }) 
+  },
+
+  destroy: (req, res) => {
+    const {id} = req.params;
+   
+    db.Movie.destroy({
+      where: {
+        id: id
+      }    
+    })
+    .catch((err) => {
+      res.send(err.message)
+    }) 
+    .then(() => {
+      res.redirect('/movies') 
+    })  
   }
 }
-
+  

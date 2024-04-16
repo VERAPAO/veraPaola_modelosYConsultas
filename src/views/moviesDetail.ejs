@@ -14,12 +14,15 @@
 
     <%- include("./partials/header") %>
 
-    <h1><%= movie.title %> </h1>    
+    <h1 style="color: #ed677d; margin-top: 30px;"><%= movie.title %> </h1>    
     <br>
     <p>RATING: <%= movie.rating %> </p>
     <p>AWARDS: <%= movie.awards %> </p>
     <p>LENGTH: <%= movie.length + ' min'%> </p>
     <p>RELEASE DATE: <%= movie.release_date %> </p>
+
+    <p><button class="button-edit-movie" style="margin-top: 10px;" type="submit"><a style="text-decoration: none; color: #ed677d;" href="/movies/edit/<%= movie.id%>">ACTUALIZAR</a></button><button class="button-edit-movie" style="margin-top: 10px; margin-left: 10px;" type="submit"><a style="text-decoration: none; color: #ed677d;" href="/movies/delete/<%= movie.id%>">BORRAR</a></button></p>
+    
 
 </body>
 </html>
